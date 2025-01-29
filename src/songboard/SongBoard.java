@@ -82,16 +82,30 @@ public class SongBoard implements SongBoardInterface {
 
 	//public void insertionSortBoard() {
 	public int[] insertionSortBoard() {
-
-		// This code for test only
+		// For CSCI 211:
+		// Insert sorting code here, adjust book template
+		// >>>>>>>>>
+//		int[] returnArray = new int[numEntries];
+//		for (int count = 0; count < numEntries; count++) {
+//			returnArray[count] = 0;
+//		}
 		int[] returnArray = new int[numEntries];
 		for (int count = 0; count < numEntries; count++) {
 			returnArray[count] = 0;
 		}
+		// Insertion-sort of an array of characters into nondecreasing order */
+		SongEntry cur;
+		int n = numEntries;
+		for (int k=1; k < n; k++) {                   // begin with second character
+			cur = songArray[k];                       // time to insert cur=data[k]
+			int j = k;                                // find correct index j for cur
+			while (j > 0 && songArray[j-1].GetRank() > cur.GetRank()) {        // thus, data[j-1] must go after cur
+				songArray[j] = songArray[j-1];                   // slide data[j-1] rightward
+				j--;                                  // and consider previous j for cur
+			}
+			songArray[j] = cur;                            // this is the proper place for cur
+		}
 
-		// For CSCI 211:
-		// Insert sorting code here, adjust book template
-		// >>>>>>>>>
 
 
 
@@ -99,9 +113,14 @@ public class SongBoard implements SongBoardInterface {
 
 
 		// Generate return array (for unit test only - future)
+//		for (int count = 0; count < numEntries; count++) {
+//			returnArray[count] = songArray[count].rank;
+//		}
+
 		for (int count = 0; count < numEntries; count++) {
-			returnArray[count] = songArray[count].rank;
+			returnArray[count] = songArray[count].GetRank();
 		}
+
 		return returnArray;
 	}
 }

@@ -10,7 +10,7 @@ public class Main {
         mySongBoard = new SongBoard();
         mySongBoard.printTopTen();
         mySongBoard.scrambleBoard();
-        int[] returnArray = new int[mySongBoard.numEntries];
+        int[] returnArray;
         // See if the scramble board worked
         System.out.println("\n\nThe new scrambled board is:");
         mySongBoard.printTopTen();
@@ -19,7 +19,9 @@ public class Main {
         System.out.println("\n\nThe now sorted board is:");
         mySongBoard.printTopTen();
         // For testing later: print returnArray, compare with expected
-        //String sortedString = Arrays.toString(returnArray);
-        //System.out.println(sortedString);
+//        System.out.println();
+        String sortedString = Arrays.toString(returnArray);
+        System.out.println(sortedString);
+        mySongBoard.printTopTen();
     }
 }
